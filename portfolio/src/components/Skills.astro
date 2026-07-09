@@ -1,0 +1,151 @@
+---
+const skillCategories = [
+  {
+    title: "Frontend",
+    skills: ["HTML5", "CSS3 / Sass", "JavaScript", "TypeScript", "Astro", "React", "Next.js", "Tailwind CSS"]
+  },
+  {
+    title: "Backend",
+    skills: ["Node.js", "Express", "Python", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"]
+  },
+  {
+    title: "Tools & Others",
+    skills: ["Git & GitHub", "Docker", "Figma", "VS Code", "Vercel / Netlify", "CMS Integration", "SEO Optimization"]
+  }
+];
+---
+
+<section id="skills" class="skills-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle">Aptitude</span>
+      <h2 class="section-title">Technical <span class="text-gradient">Skills</span></h2>
+      <p class="section-desc">My workspace changes with each project, but these are the primary languages, frameworks, and tools I use to bring ideas to life.</p>
+    </div>
+    
+    <div class="grid-3 skills-grid">
+      {skillCategories.map((category) => (
+        <div class="skill-category-card glass-panel">
+          <h3 class="category-title">{category.title}</h3>
+          <div class="skills-list">
+            {category.skills.map((skill) => (
+              <div class="skill-item">
+                <span class="skill-dot"></span>
+                <span class="skill-name">{skill}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-section {
+    padding: 100px 0;
+    position: relative;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .section-subtitle {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-accent-1);
+  }
+  
+  .section-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+  
+  .section-desc {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-top: 0.5rem;
+  }
+  
+  .skills-grid {
+    margin-top: 2rem;
+  }
+  
+  .skill-category-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .category-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    border-left: 3px solid var(--color-accent-2);
+    padding-left: 0.75rem;
+  }
+  
+  .skills-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    .skills-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-fast);
+  }
+  
+  .skill-item:hover {
+    background: rgba(99, 102, 241, 0.08);
+    border-color: rgba(99, 102, 241, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .skill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-accent-1);
+    transition: var(--transition-fast);
+  }
+  
+  .skill-item:hover .skill-dot {
+    background-color: var(--color-accent-2);
+    box-shadow: 0 0 6px var(--color-accent-2);
+  }
+  
+  .skill-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: var(--transition-fast);
+  }
+  
+  .skill-item:hover .skill-name {
+    color: var(--text-primary);
+  }
+</style>

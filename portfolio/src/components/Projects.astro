@@ -1,0 +1,210 @@
+---
+const projects = [
+  {
+    title: "Aetherial - AI Web Platform",
+    description: "An advanced web interface designed for generative artificial intelligence rendering, featuring live nodes and responsive glassmorphic interfaces.",
+    tech: ["Astro", "React", "TypeScript", "Tailwind"],
+    gradient: "linear-gradient(135deg, #4f46e5, #06b6d4)",
+    link: "#"
+  },
+  {
+    title: "Nova - Crypto Dashboard",
+    description: "A real-time financial tracking dashboard displaying cryptographic asset prices, wallet analytics, and predictive trending charts.",
+    tech: ["Svelte", "D3.js", "Node.js", "CSS Grid"],
+    gradient: "linear-gradient(135deg, #d946ef, #6366f1)",
+    link: "#"
+  },
+  {
+    title: "Astro Glassmorphic Portfolio",
+    description: "A premium, high-performance developer portfolio website designed with dark-mode glassmorphic aesthetics, Google Fonts, and custom CSS grid layouts.",
+    tech: ["Astro", "HTML5", "CSS3 / Custom Variables", "JavaScript"],
+    gradient: "linear-gradient(135deg, #06b6d4, #10b981)",
+    link: "https://github.com/souravsharma0722"
+  }
+];
+---
+
+<section id="projects" class="projects-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle">My Work</span>
+      <h2 class="section-title">Featured <span class="text-gradient">Projects</span></h2>
+      <p class="section-desc">A selection of tools and applications I've designed and developed, focusing on UX details and high performance.</p>
+    </div>
+    
+    <div class="grid-3 projects-grid">
+      {projects.map((project) => (
+        <article class="project-card glass-panel">
+          <div class="card-image" style={`background: ${project.gradient}`}>
+            <div class="image-overlay"></div>
+            <span class="project-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </span>
+          </div>
+          <div class="card-content">
+            <h3 class="project-title">{project.title}</h3>
+            <p class="project-desc">{project.description}</p>
+            <div class="project-tags">
+              {project.tech.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+            <a href={project.link} class="project-link">
+              Explore Project 
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    padding: 100px 0;
+    position: relative;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .section-subtitle {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-accent-1);
+  }
+  
+  .section-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+  
+  .section-desc {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-top: 0.5rem;
+  }
+  
+  .projects-grid {
+    margin-top: 2rem;
+  }
+  
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+  }
+  
+  .card-image {
+    height: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-normal);
+  }
+  
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, transparent 20%, rgba(5, 7, 12, 0.4) 100%);
+  }
+  
+  .project-icon {
+    position: relative;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: var(--transition-normal);
+  }
+  
+  .project-card:hover .card-image {
+    filter: brightness(1.1);
+  }
+  
+  .project-card:hover .project-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: rgba(255, 255, 255, 0.25);
+  }
+  
+  .card-content {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 1rem;
+  }
+  
+  .project-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  
+  .project-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    flex-grow: 1;
+    line-height: 1.6;
+  }
+  
+  .project-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0.5rem 0;
+  }
+  
+  .tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+  }
+  
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-accent-2);
+    align-self: flex-start;
+  }
+  
+  .project-link svg {
+    transition: var(--transition-fast);
+  }
+  
+  .project-link:hover {
+    color: var(--color-accent-1);
+  }
+  
+  .project-link:hover svg {
+    transform: translateX(4px);
+  }
+</style>

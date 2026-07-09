@@ -1,0 +1,46 @@
+---
+import '../styles/index.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title, 
+  description = "Welcome to my premium personal developer portfolio. Explore my projects, skills, and contact information." 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+  </head>
+  <body>
+    <!-- Background Glow Orbs for visual depth -->
+    <div class="glow-orb" style="top: 10%; left: 15%; width: 350px; height: 350px; background-color: var(--color-accent-1);"></div>
+    <div class="glow-orb" style="top: 50%; right: 10%; width: 400px; height: 400px; background-color: var(--color-accent-2);"></div>
+    <div class="glow-orb" style="top: 80%; left: 5%; width: 300px; height: 300px; background-color: var(--color-accent-3); opacity: 0.15;"></div>
+
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,41 @@
+---
+---
+<footer class="footer">
+  <div class="container footer-container">
+    <p class="copyright">© 2026 Sourav Sharma. All rights reserved.</p>
+    <p class="tech-stack">Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="astro-link">Astro</a> & CSS Gradients</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--border-color);
+    padding: 2.5rem 0;
+    background-color: #04050a;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  
+  .astro-link {
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+  
+  .astro-link:hover {
+    color: var(--color-accent-2);
+  }
+  
+  @media (max-width: 600px) {
+    .footer-container {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+</style>

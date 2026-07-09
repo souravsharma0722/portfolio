@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Sourav Sharma | Intern Software Engineer Portfolio" description="Personal portfolio website of Sourav Sharma, a B.Tech 4th year student and Intern Software Engineer.">
+	<Header />
+	<main>
+		<Hero />
+		<Projects />
+		<Skills />
+		<Contact />
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	main {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		z-index: 10;
+	}
+</style>
